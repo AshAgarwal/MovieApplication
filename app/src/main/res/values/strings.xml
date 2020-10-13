@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">MovieApplication</string>
+    <string name="movie_name">Movie Name</string>
+    <string name="genre">Genre</string>
+    <string name="release_date">Release Date</string>
+    <string name="action_settings">Settings</string>
+    <string name="pref_sort_order_label">Sort Order</string>
+    <string name="pref_sort_order_key">sortOrder</string>
+    <string name="pref_most_popular">Most Popular</string>
+    <string name="pref_highest_rated">Highest Rated</string>
+    <string name="refresh">Refresh</string>
+    <string name="movie_rating">Movie Rating</string>
+    <string name="description">Description</string>
+    <string name="popularity">Popularity</string>
+    <string name="adult_film">Adult Film</string>
+    <string name="sort_by_rating">Sort By Rating</string>
+    <string name="sort_by_popularity">Sort By Popularity</string>
+    <string name="trailers">Trailers</string>
 </resources>
