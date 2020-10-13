@@ -7,9 +7,12 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -25,13 +28,20 @@ import com.example.movieapplication.api.Service;
 import com.example.movieapplication.model.Movie;
 import com.example.movieapplication.model.MoviesResponse;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import okhttp3.Cache;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -43,7 +53,6 @@ public class MainActivity extends AppCompatActivity  {
 
     private AppCompatActivity activity = MainActivity.this;
     private SharedPreferences shared_sort;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +83,6 @@ public class MainActivity extends AppCompatActivity  {
         movieListRecycle.setItemAnimator(new DefaultItemAnimator());
         movieListRecycle.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        //checkSortOrder();
         boolean isPopular = shared_sort.getBoolean("isPopular", true);
 
         if (isPopular) {
